@@ -1,1 +1,157 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#d0cfd3"><title>Home | Selly</title><link rel="stylesheet" href="style.css"></head><body><div class="site"><header><a class="logo" href="index.html" aria-label="Selly home">sw</a><nav aria-label="Main navigation"><a href="index.html" class="active">Home</a><a href="portfolio.html" class="">Portfolio</a><a href="about.html" class="">About</a><a href="contact.html" class="">Contact</a></nav><span class="top-mark">SELECTED WORK · 2026</span></header><main><section class="hero"><div class="copy"><div class="eyebrow">A personal creative portfolio</div><span class="vertical">CREATIVE PRACTICE</span><h1>Selly<span>working.</span></h1><div class="sub">Design · Visual stories · Ideas</div><p class="intro">A collection of visual experiments, design projects, and work in progress. Minimal by nature, thoughtful by design.</p><a class="btn" href="portfolio.html">Explore selected work ↗</a></div><div class="card-area"><div class="card-instruction">Tap the card to turn it over</div><div class="card-scene" id="cardScene" role="button" tabindex="0" aria-label="Flip portfolio card"><div class="flip-card" id="flipCard"><div class="card-face card-front"><img src="front.png" alt="Portfolio card front"></div><div class="card-face card-back"><img src="back.png" alt="Portfolio card back"></div></div></div><div class="card-controls"><button class="flip-button" id="flipButton" type="button">↻ FLIP CARD</button><span>FRONT / BACK</span></div></div></section><div class="hero-bottom"><span>Independent creative practice</span><span>Scroll less · Explore more</span><a href="about.html">ABOUT THE DESIGNER ↗</a></div><script>const scene=document.getElementById('cardScene'),card=document.getElementById('flipCard'),button=document.getElementById('flipButton');function flip(){card.classList.toggle('flipped')}scene.addEventListener('click',flip);scene.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();flip()}});button.addEventListener('click',flip);function sizeCard(){const img=document.querySelector('.card-front img');if(img.naturalWidth&&img.naturalHeight)card.style.aspectRatio=img.naturalWidth+'/'+img.naturalHeight}document.querySelector('.card-front img').addEventListener('load',sizeCard);sizeCard();</script></main><footer><span>© 2026 SELLY</span><span>DESIGN · ART · IDEAS</span><a href="index.html">BACK HOME ↑</a></footer></div></body></html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>sellyworking</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: white;
+}
+
+body {
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-style: preserve-3d;
+  transform-origin: center;
+  cursor: grab;
+  will-change: transform;
+}
+
+.card:active {
+  cursor: grabbing;
+}
+
+
+.face {
+  position: absolute;
+  inset: 0;
+  border: 2px solid #222;
+  border-radius: 12px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.face img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 10px;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+  <div class="face">
+    <img id="front" src="front.png" alt="">
+  </div>
+
+  <div class="face back">
+    <img id="back" src="back.png" alt="">
+  </div>
+</div>
+
+<script>
+const card = document.getElementById("card");
+const front = document.getElementById("front");
+const back = document.getElementById("back");
+
+let rotationX = 0;
+let rotationY = 0;
+let dragging = false;
+let lastX = 0;
+let lastY = 0;
+
+function sizeCard() {
+  const width = front.naturalWidth || 900;
+  const height = front.naturalHeight || 500;
+
+  // Smaller card with its original proportions preserved
+  const scale = Math.min(
+    0.75,
+    window.innerWidth * 0.75 / width,
+    window.innerHeight * 0.75 / height
+  );
+
+  card.style.width = `${width * scale * 1.2}px`;
+card.style.height = `${height * scale}px`;
+
+  updateCard();
+}
+
+function updateCard() {
+  card.style.transform =
+    `translate(-50%, -50%) rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+}
+
+front.addEventListener("load", sizeCard);
+back.addEventListener("load", sizeCard);
+window.addEventListener("resize", sizeCard);
+
+if (front.complete && front.naturalWidth) {
+  sizeCard();
+}
+
+card.addEventListener("pointerdown", (e) => {
+  dragging = true;
+  lastX = e.clientX;
+  lastY = e.clientY;
+
+  card.setPointerCapture(e.pointerId);
+});
+
+card.addEventListener("pointermove", (e) => {
+  if (!dragging) return;
+
+  const dx = e.clientX - lastX;
+  const dy = e.clientY - lastY;
+
+  // Rotate without moving the card's position
+  rotationY += dx * 0.6;
+  rotationX -= dy * 0.6;
+
+  lastX = e.clientX;
+  lastY = e.clientY;
+
+  updateCard();
+});
+
+function stopDragging() {
+  dragging = false;
+}
+
+card.addEventListener("pointerup", stopDragging);
+card.addEventListener("pointercancel", stopDragging);
+</script>
+
+</body>
+</html>
