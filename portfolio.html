@@ -39,6 +39,45 @@ h1{font-size:clamp(38px,5vw,68px);line-height:.98}h1 span{display:block;font-wei
 footer{display:flex;justify-content:space-between;gap:14px;padding:16px clamp(22px,5vw,68px);font:9px Manrope,sans-serif;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;border-top:1px solid var(--line)}
 @media(max-width:720px){body{padding:0}header{height:64px;padding:0 18px}.logo{width:32px;height:46px}nav{gap:13px}nav a{font-size:9px}.hero{grid-template-columns:1fr;padding:18px 20px 28px;gap:4px}.copy{padding-left:23px;padding-top:15px}.vertical{font-size:18px}.hero:before{top:48%;width:70%;height:100px}.card-area{padding:8px 0 24px}.card-scene{width:min(100%,450px)}.hero-bottom{margin:0 20px;font-size:8px}.page-content{padding-top:42px}.gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px}.about-layout{grid-template-columns:1fr;gap:18px}}
 @media(max-width:430px){header{padding:0 13px}nav{gap:10px}nav a{font-size:8px}.social{display:none}.gallery{grid-template-columns:1fr}.project-image{aspect-ratio:5/3}footer{flex-direction:column}}
+/* Editorial ink-wash theme inspired by the supplied reference */
+:root{--forest:#e6e6e3;--accent:#747b79;--paper:#fff;--ink:#171817;--mist:#ededeb;--muted:#666966;--line:rgba(23,24,23,.22)}
+body{background:#e7e7e5;padding:clamp(0px,2vw,24px);font-family:Georgia,'Times New Roman',serif;color:var(--ink)}
+.site{max-width:1440px;background:#fff;box-shadow:0 12px 22px #0002;min-height:85vh}
+header{height:82px;border-bottom:1px solid #e4e4e1}
+.logo{background:transparent;color:var(--ink);border:1px solid var(--ink);width:42px;height:52px;font:normal 20px Georgia,serif;letter-spacing:-2px}
+nav{gap:clamp(15px,3vw,38px)}nav a,.social{font-family:Arial,sans-serif;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#444}
+nav a:hover,nav a.active{color:#858b88}
+.eyebrow{font-family:Arial,sans-serif;font-size:9px;letter-spacing:.25em;color:#777;margin-bottom:20px}
+h1,h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-.045em}
+.hero{min-height:510px;grid-template-columns:minmax(220px,.82fr) minmax(280px,1.25fr);padding-top:30px;padding-bottom:38px;gap:28px}
+.hero:before{content:"";right:-2%;top:5%;width:52%;height:88%;background:radial-gradient(ellipse at 58% 40%,#222 0,#101110 35%,#383a38 52%,#5d605d 65%,transparent 72%);border-radius:58% 42% 48% 52% / 36% 48% 52% 64%;filter:contrast(1.08);opacity:.96}
+.copy{padding-left:34px}.vertical{font-size:24px;color:#222}
+h1{font-size:clamp(42px,5.8vw,78px);line-height:.96}h1 span{font-weight:400}
+.sub{font-family:Arial,sans-serif;font-size:9px;letter-spacing:.2em;color:#555}
+.intro{font-family:Arial,sans-serif;font-size:11px;color:#666;line-height:2}
+.btn{background:#171817;color:white;font-family:Arial,sans-serif;font-size:9px;letter-spacing:.16em;padding:13px 16px}.btn:hover{background:#747b79}
+.card-area{position:relative;z-index:1;gap:10px;padding:12px 0 22px}
+.card-instruction{color:#eee;align-self:center;font-family:Arial,sans-serif;letter-spacing:.2em;text-shadow:0 1px 5px #000}
+.card-scene{width:min(100%,470px);filter:drop-shadow(0 12px 8px #0002)}
+.flip-card{background:#fff;border:8px solid #fff;box-shadow:0 2px 15px #0003}
+.card-face{background:#fff}.card-face img{object-fit:contain}.card-shadow{display:none}
+.card-label{color:#eee;text-shadow:0 1px 5px #000;font-family:Arial,sans-serif}
+.card-controls{color:#eee;text-shadow:0 1px 5px #000}.flip-button{border-color:#ffffff9c;color:#fff;background:#171817aa;font-family:Arial,sans-serif}.flip-button:hover{background:#fff;color:#171817}
+.hero-bottom{border-color:#ddd;font-family:Arial,sans-serif;letter-spacing:.18em;color:#777}
+.page-content{padding:clamp(36px,6vw,76px) clamp(22px,5vw,68px) 76px;min-height:450px}
+.page-title{font-size:clamp(42px,6vw,76px);margin-bottom:20px}
+.page-intro{font-family:Arial,sans-serif;font-size:11px;line-height:2;color:#6a6a67;max-width:560px}
+.gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 24px}
+.project-image{aspect-ratio:16/9;background:#e7e7e5;box-shadow:5px 6px 0 #d6d6d3}
+.project-image img{filter:grayscale(100%);mix-blend-mode:multiply}
+.number{font-family:Arial,sans-serif;background:#fff;color:#333}
+.project-info{border-bottom:1px solid #e1e1df;padding:12px 2px 15px}.project-info h3{font-family:Georgia,serif;font-size:16px;font-weight:400}.project-info p{font-family:Arial,sans-serif;font-size:9px;letter-spacing:.14em;color:#777}
+.about-layout{gap:44px}.about-layout p{font-family:Arial,sans-serif;font-size:12px;line-height:2;color:#666}
+.contact-panel{background:#f0f0ed;color:#171817;border-left:3px solid #171817;max-width:700px;padding:clamp(24px,4vw,42px)}.contact-panel h2{font-size:clamp(30px,4vw,48px)}.contact-panel p{font-family:Arial,sans-serif;color:#555}.contact-panel a{border-color:#777;color:#171817;font-family:Arial,sans-serif}.contact-panel a:hover{background:#171817;color:white}
+footer{font-family:Arial,sans-serif;font-size:9px;letter-spacing:.14em;color:#777;border-color:#ddd}
+@media(max-width:720px){body{padding:0}.hero{grid-template-columns:1fr;gap:0;padding-top:22px}.hero:before{top:47%;width:78%;height:48%;right:-4%}.copy{padding-left:26px}.card-area{padding-top:22px}.card-instruction{align-self:center}.card-scene{width:min(90%,420px)}.card-label,.card-controls{color:#fff}.gallery{grid-template-columns:1fr}.project-image{aspect-ratio:16/9}.hero-bottom{margin:0 20px}}
+@media(max-width:430px){nav{gap:8px}nav a{font-size:8px;letter-spacing:.04em}.logo{width:32px;height:43px;font-size:16px}.gallery{grid-template-columns:1fr}}
+
 </style></head><body><main class="site" id="top"><header><a class="logo" href="index.html" aria-label="Home">sw</a><nav aria-label="Main navigation"><a class="" href="index.html">Home</a><a class="active" href="portfolio.html">Portfolio</a><a class="" href="about.html">About</a><a class="" href="contact.html">Contact</a></nav><a class="social" href="contact.html">↗ &nbsp; ✳ &nbsp; ○</a></header>
 <section class="page-content"><div class="eyebrow">THE COLLECTION</div><h1 class="page-title">Selected work.</h1><p class="page-intro">Photography, projects, designs, and little experiments. Replace these sample images and captions with your own work.</p><div class="gallery">
 <article class="project"><div class="project-image"><span class="number">01</span><img src="portfolio-1.jpg" alt="Project 1" loading="lazy"></div><div class="project-info"><div><h3>Project title</h3><p>Photography / 2026</p></div><span>↗</span></div></article><article class="project"><div class="project-image"><span class="number">02</span><img src="portfolio-2.jpg" alt="Project 2" loading="lazy"></div><div class="project-info"><div><h3>Project title</h3><p>Design / 2026</p></div><span>↗</span></div></article><article class="project"><div class="project-image"><span class="number">03</span><img src="portfolio-3.jpg" alt="Project 3" loading="lazy"></div><div class="project-info"><div><h3>Project title</h3><p>Creative / 2026</p></div><span>↗</span></div></article><article class="project"><div class="project-image"><span class="number">04</span><img src="portfolio-4.jpg" alt="Project 4" loading="lazy"></div><div class="project-info"><div><h3>Project title</h3><p>Art direction / 2026</p></div><span>↗</span></div></article><article class="project"><div class="project-image"><span class="number">05</span><img src="portfolio-5.jpg" alt="Project 5" loading="lazy"></div><div class="project-info"><div><h3>Project title</h3><p>Personal / 2026</p></div><span>↗</span></div></article><article class="project"><div class="project-image"><span class="number">06</span><img src="portfolio-6.jpg" alt="Project 6" loading="lazy"></div><div class="project-info"><div><h3>Project title</h3><p>Experiments / 2026</p></div><span>↗</span></div></article>
